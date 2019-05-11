@@ -20,15 +20,24 @@ $("#add-fav").on("click", function(event) {
 
 renderButtons()
 
-var chosen=
+function displayGif() {
 
-var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=aiLOQJHknECBEjpbRzQxZNPPt5stTrAl&q="+chosen+"&limit=10&offset=0&rating=G&lang=en"
+    var chosen = $(this).attr("data-name")
+
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=aiLOQJHknECBEjpbRzQxZNPPt5stTrAl&q="+chosen+"&limit=10&offset=0&rating=G&lang=en"
 
 $.ajax({
   url: queryURL,
   method: "GET"
 }).then(function(response) {
   console.log(response);
-
-  $("#gifs").append(response)
+  var results = response.data
+    var gifurl = response.data.images.url
+    var gifpic= $("<img>")
+    gifpic.attr("src", gifurl)
+    gifpic.attr("alt", "mythical creature image")
+  $("#gifs").append(gifpic)
 })
+}
+
+$(document).on("click", ".fav", displayGif)
