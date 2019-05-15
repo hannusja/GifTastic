@@ -32,11 +32,14 @@ $.ajax({
 }).then(function(response) {
   console.log(response);
   var results = response.data
-    var gifurl = response.data.images.url
+  for (var i = 0; i < results.length; i++) {
+  
+    var gifurl = results[i].images.fixed_height.url
     var gifpic= $("<img>")
     gifpic.attr("src", gifurl)
     gifpic.attr("alt", "mythical creature image")
   $("#gifs").append(gifpic)
+  }
 })
 }
 
