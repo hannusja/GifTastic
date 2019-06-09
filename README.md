@@ -5,7 +5,7 @@ Purpose: learn to work with API and jQuery
 
 View: https://yanjasho.github.io/GifTastic/
 
-How to use: 
+How to use:   
             Click on a button to see some gifs of mythical creatures
 
             Click on a gif to make it move
